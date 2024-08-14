@@ -12,6 +12,8 @@ a{
 }
 
 section{
+    margin-top: 70px;
+    margin-bottom: 70px;
     padding: 5px;
     display: flex;
     flex-direction: row;
@@ -128,7 +130,7 @@ hr{
 
 #summerSale{
     font-size: 60px;
-    margin-top: 100px;
+    margin-top: 60px;
     margin-left: 0;
     margin-right: 0;
     margin-bottom: 0;
@@ -140,14 +142,14 @@ hr{
     margin: 0;
 }
 
-.column {
+.iconColumn {
     flex: 5%;
     padding: 5px;
 }
 
-.row{
+.iconRow{
     display: flex;
-    margin-top: 50px ;
+    margin-top: 80px ;
 }
 
 .icon{
@@ -161,8 +163,8 @@ hr{
 
 .icon:hover{
     cursor: pointer;
-    max-width: 50px;
-    padding: 15px;
+    max-width: 55px;
+    padding: 12.5px;
 }
 
 /*New items section*/
@@ -170,6 +172,34 @@ hr{
 .subtitle{
     text-align: center;
     font-size: 60px;
+}
+
+.item{
+    width: 180px;
+    height: 180px;
+    padding: 10px;
+    background-color: white;
+    border: 3px solid #3d6439;
+}
+
+.itemColumn{
+    margin-left: 3%;
+    margin-right: 3%;
+    padding: 5px;
+}
+
+.itemRow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px ;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.itemName{
+    text-align: center;
+    margin: 0 auto;
 }
 
 /*
