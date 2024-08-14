@@ -118,8 +118,12 @@ hr{
     text-align: center;
 }
 
-#sofa{
-    margin-top: 5%;
+.slides{
+    display: none;
+}
+
+.slideLayout{
+    margin-top: 3%;
     margin-left: 1%;
     margin-right: 30px;
     width: 800px;
