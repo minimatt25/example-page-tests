@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Odin project course</title>
+    </head>
+    <body>
+        <script>
+            function fizzbuzz(){
+                let answer = parseInt(prompt("Please enter the number you would like to FizzBuzz up to: "));
+                for(i=1 ; i<=answer; i++){
+                    if(i%3==0 && i%5==0){
+                        console.log("fizz-buzz");
+                    } else if(i%3==0){
+                        console.log("fizz");
+                    } else if(i%5==0){
+                        console.log("buzz")
+                    } else{
+                        console.log(i);
+                    }
+                }
+            }
+            
+            function rockPaperScissors(){
+                let goneThrough = false;
+                let valid = false;
+                let userChoice = "nothing";
+                let userScore = 0;
+                let compNum = 0;
+                let compChoice = "nothing";
+                let compScore = 0;
+
+                let rounds = parseInt(prompt("how many rounds do you want?"));
+                for(i=1; i<=rounds; i++){
+                    console.log(`ROUND ${i}`)
+                    while(valid == false){
+                        if(goneThrough == false){
+                            userChoice = prompt("please enter your userChoice (rock, paper, or scissors):");
+                        } else{
+                            userChoice = prompt("answer invalid, please try again (rock, paper, or scissors):");
+                        }
+
+                        userChoice = userChoice.toUpperCase();
+
+                        if(userChoice!="ROCK" && userChoice!="PAPER" && userChoice!="SCISSORS"){
+                            goneThrough = true;
+                        } else{
+                            valid = true;
+                        }
+                    }
+
+                    compNum = Math.floor(Math.random()*3) + 1;
+                    if(compNum == 1){
+                        compChoice = "ROCK";
+                    } else if(compNum == 2){
+                        compChoice = "PAPER";
+                    } else{
+                        compChoice = "SCISSORS"
+                    }
+
+                    console.log(`You chose ${userChoice} and the computer chose ${compChoice}`)
+
+                    if((userChoice == "ROCK" && compChoice == "ROCK")||(userChoice == "PAPER" && compChoice == "PAPER")||(userChoice == "SCISSORS" && compChoice == "SCISSORS")){
+                        console.log("You drew meaning no points for either...")
+                    } else if((userChoice == "PAPER" && compChoice == "ROCK")||(userChoice == "SCISSORS" && compChoice == "PAPER")||(userChoice == "ROCK" && compChoice == "SCISSORS")){
+                        console.log("You won this round!")
+                        userScore+=1;
+                    } else if((userChoice == "SCISSORS" && compChoice == "ROCK")||(userChoice == "ROCK" && compChoice == "PAPER")||(userChoice == "PAPER" && compChoice == "SCISSORS")){
+                        console.log("You lost this round!")
+                        compScore+=1;
+                    }
+                    
+                    if(i!=rounds){
+                        console.log(`the current score is:\nUser:${userScore}\nComputer:${compScore}`)
+                    } else{
+                        console.log(`the final score is:\nUser:${userScore}\nComputer:${compScore}`)
+                    }
+
+                    valid = false;
+                    goneThrough = false;
+                }
+            }
+
+        </script>
+    </body>
+</html>
