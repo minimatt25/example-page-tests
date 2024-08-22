@@ -1,0 +1,26 @@
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1{
+    text-align: center;
+}
+
+#choices{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+button{
+    width: 140px;
+    font-size: 20px;
+    padding: 5px;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.centred{
+    text-align: center;
+}

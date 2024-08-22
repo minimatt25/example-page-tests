@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RPS UI</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="rock paper scissors UI.css">
+    </head>
+    <body>
+        <h1>Rock Paper Scissors</h1>
+        <div id="round"></div>
+        <div id="scores"></div>
+        
+        <div id="choices">
+            <button id="rock">rock</button>
+            <button id="paper">paper</button>
+            <button id="scissors">scissors</button>
+        </div>
+
+        <br>
+        <br>
+        <h2 class="centred">Computer Choice</h2>
+        <div id="finalChoices"></div>
+        
+        <script>
+            let roundNum = 1;
+            let userChoice;
+            let userScore = 0;
+            let compScore = 0;
+
+            const roundBox = document.getElementById("round");
+            const scoreBox = document.getElementById("scores");
+            const finalBox = document.getElementById("finalChoices");
+
+            const rockBtn = document.getElementById("rock");
+            const paperBtn = document.getElementById("paper");
+            const scissorsBtn = document.getElementById("scissors");
+
+            function round() {
+                roundBox.innerHTML = `<h2 class="centred">Round ${roundNum}</h2>`;
+
+                rockBtn.addEventListener("click", playRound);
+                paperBtn.addEventListener("click", playRound);
+                scissorsBtn.addEventListener("click", playRound);
+            }
+
+            function playRound(event) {
+                userChoice = event.target.id.toUpperCase();
+
+                const compNum = Math.floor(Math.random() * 3) + 1;
+                let compChoice;
+                if (compNum === 1) {
+                    compChoice = "ROCK";
+                } else if (compNum === 2) {
+                    compChoice = "PAPER";
+                } else {
+                    compChoice = "SCISSORS";
+                }
+
+                whoWon(userChoice, compChoice);
+                
+                roundNum++;
+                round();
+            }
+
+            function whoWon(userChoice, compChoice) {
+                const finalText = document.createElement("h4");
+                finalText.classList.add("centred");
+                finalText.textContent = `You chose ${userChoice} | Computer chose ${compChoice}`;
+                finalBox.appendChild(finalText);
+
+                if ((userChoice === "PAPER" && compChoice === "ROCK") ||
+                    (userChoice === "SCISSORS" && compChoice === "PAPER") ||
+                    (userChoice === "ROCK" && compChoice === "SCISSORS")) {
+                    userScore++;
+                } else if ((userChoice === "SCISSORS" && compChoice === "ROCK") ||
+                           (userChoice === "ROCK" && compChoice === "PAPER") ||
+                           (userChoice === "PAPER" && compChoice === "SCISSORS")) {
+                    compScore++;
+                }
+
+                scoreBox.innerHTML = `<h2 class="centred">You: ${userScore} | Comp: ${compScore}</h2>`;
+            }
+
+            round();
+        </script>
+    </body>
+</html>
