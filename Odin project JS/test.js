@@ -25,7 +25,7 @@ h1.textContent = "CSS and H1 tag from JS";
 
 const p = document.createElement("p");
 p.classList.add("p");
-p.textContent = "p";
+p.textContent = "paragraph from JS";
 
 customisation.appendChild(h1);
 customisation.appendChild(p);
@@ -35,4 +35,9 @@ customisation.appendChild(p);
 
 const helloButton = document.querySelector("#helloButton");
 helloButton.onclick = () => alert("button works!");
+
+helloButton.addEventListener("click", function (e) {
+    e.target.style.background = "blue";
+    document.getElementById("customisation").style.backgroundColor("blue");
+});
 
