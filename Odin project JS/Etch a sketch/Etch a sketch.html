@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Etch a Sketch</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="Etch a sketch.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <h1 class="title">Etch a sketch</h1>
+        <div id="buttons"></div>
+        <div id="boxes"></div>
+        
+        <script>
+            const buttons = document.getElementById("buttons");
+
+            //making the boxes
+            const boxBox = document.querySelector("#boxes");
+
+            function box(){
+               const box = document.createElement("div");
+               box.classList.add("box");
+               boxBox.appendChild(box);
+
+                document.querySelectorAll(".box").forEach(box => {
+                    box.addEventListener("mouseover", function(){
+                        this.classList.add("permanent");
+                    });
+                })
+            }
+
+            for(let i=0;i<16;i++){
+                for(let j=0;j<16;j++){
+                    box();
+                }
+            }
+
+
+            //reset button
+            function resetBackground(){
+                document.querySelectorAll(".box").forEach(box => {
+                    box.classList.remove("permanent");
+                });
+            }
+
+            const reset = document.createElement("button");
+            reset.classList.add("button");
+            reset.textContent = "reset";
+            reset.onclick = resetBackground;
+
+            buttons.append(reset);
+
+
+            //custom box button
+            function customSize(){
+                boxBox.innerHTML = "";
+
+                let goodValue = false;
+                let boxAmount = prompt("How many boxes do you want per side? (up to 100)");
+
+                if(boxAmount != null && (isNaN(boxAmount) || boxAmount>100)){
+                    alert("Value not accepted");
+                    return;
+                }
+
+
+                const bigBoxWidth = parseInt(getComputedStyle(boxBox).width);
+                const boxWidth = (592 - (boxAmount * 2))/boxAmount + "px";
+
+                for (let i = 0; i < boxAmount; i++) {
+                    for (let j = 0; j < boxAmount; j++) {
+                        const box = document.createElement("div");
+                        box.classList.add("box");
+                        box.style.width = boxWidth;
+                        box.style.height = boxWidth;
+                        boxBox.appendChild(box);
+
+                        box.addEventListener("mouseover", function () {
+                            this.classList.add("permanent");
+                        });
+                    }
+                }    
+            }
+            const custom = document.createElement("button");
+            custom.classList.add("button");
+            custom.textContent = "custom";
+            custom.onclick = customSize;
+
+            buttons.append(custom);
+        </script>
+    </body>
+</html>
