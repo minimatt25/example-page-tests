@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--this becomes what is below it when tab is pressed-->
+    <!--main.parent>(div.child.group1>div.grandchild.group1)+(div.child.group2>div.grandchild.group2)+(div.child.group3>div.grandchild.group3)-->
+
+    <main class="parent">
+        <div class="child group1">
+            <div class="grandchild group1"></div>
+        </div>
+        <div class="child group2">
+            <div class="grandchild group2"></div>
+        </div>
+        <div class="child group3">
+            <div class="grandchild group3"></div>
+        </div>
+    </main>
+
+    <style>
+        .emojify::before{
+            content: "🐷🐷🐷";
+        }
+        .emojify::after{
+            content: "🐧🐧🐧";
+        }
+    </style>
+    <h1 class="emojify">fun emoji test</h1>
+    
+</body>
+</html>
