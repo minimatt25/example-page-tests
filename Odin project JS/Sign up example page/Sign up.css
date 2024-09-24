@@ -1,0 +1,54 @@
+body{
+    background-image: url("green\ background\ image.jpg") ;
+    background-size: cover;
+    font-family: "Gowun Batang", serif;
+}
+
+.mainSection{
+    top: 0;
+    right: 0;
+    position: fixed;
+    width: 60%;
+    height: 100vh;
+    background-color: white;
+}
+
+.centerText{
+    text-align: center;
+    justify-content: center;
+}
+
+.signUp{
+    color: black;
+    font-size: 40px;
+}
+
+fieldset{
+    width: 75%;
+    margin: auto;
+}
+
+label{
+    font-size: 25px;
+}
+
+input{
+    font-size: 15px;
+}
+
+input:invalid{
+    border-color: red;
+}
+
+input:valid{
+    border-color: green;
+}
+
+.table{
+    display: table;
+}
+
+.cell{
+    display: table-cell;
+    padding: 20px;
+}
