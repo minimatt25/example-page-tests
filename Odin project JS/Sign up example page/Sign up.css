@@ -52,3 +52,19 @@ input:valid{
     display: table-cell;
     padding: 20px;
 }
+
+.create{
+    padding-left: 100px;
+}
+
+button{
+    font-family: "Gowun Batang", serif;
+    background-color: rgb(70, 145, 70);
+    color: white;
+    font-size: 25px;
+}
+
+#message{
+    position: relative;
+    top: 25px;
+}

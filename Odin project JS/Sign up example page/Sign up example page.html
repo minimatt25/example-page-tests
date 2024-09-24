@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="mainSection">
@@ -40,7 +42,22 @@
                     <br>
                     <input type="tel" id="phoneNumber" name="phoneNumber" pattern=".{11}">
                 </div>
+                <div class="cell create">
+                    <button id="createAccount" disabled>Create Account</button>
+                </div>
             </div>
+
+            <script>
+                $(document).ready(function () {
+                    $('#password, #confirm').on('keyup',function (){
+                        if ($('#password').val() == $('#confirm').val()){
+                            $('#message').html('Matching').css('color', 'green');
+                        } else{
+                            $('#message').html('Not Matching').css('color', 'red');
+                        }
+                    });
+                });
+            </script>
 
             <div class="table"></div>
                 <div class="cell">
@@ -53,8 +70,40 @@
                     <br>
                     <input type="password" id="confirm" name="confirm" pattern=".{8,}">
                 </div>
+                <div class="cell" id="message"></div>
             </div>
         </fieldset>
     </div>
+
+    <script>
+        $(document).ready(function (){
+            const createAccountButton = $('#createAccount');
+
+            function validation(){
+                const firstName = $('#firstName').val().trim();
+                const lastName = $('#lastName').val().trim();
+                const email = $('#email').val().trim();
+                const phoneNumber = $('#phoneNumber').val().trim();
+                const password = $('#password').val().trim();
+                const confirm = $('#confirm').val().trim();
+
+                if ( firstName!='' && lastName!='' && email!='' && phoneNumber.length==11 
+                    && password.length>=8 && confirm == password
+                ){
+                    createAccountButton.prop('disabled', false);
+                } else{
+                    createAccountButton.prop('disabled', true);
+                }
+
+            }
+
+            $('#firstName, #lastName, #email, #phoneNumber, #password, #confirm').on('input', validation);
+
+        });
+        
+        document.getElementById('createAccount').onclick = function (){
+            window.location.href = 'Sign up worked.html';
+        };
+    </script>
 </body>
 </html>
