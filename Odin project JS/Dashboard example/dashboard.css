@@ -1,0 +1,116 @@
+body{
+    font-family: "DM Serif Text", serif;
+}
+
+
+
+#sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100vh;
+    background-color: #40474D;
+}
+
+#dashboard{
+    margin-top: 45px;
+    text-align: center;
+    font-size: 30px;
+    color: #DBDBDB;
+}
+
+.links{
+    list-style-type: none;
+}
+
+.link{
+    padding: 10px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.link#seperation>a{
+    text-decoration: none;
+    color: #DBDBDB;
+}
+
+.link>a{
+    text-decoration: none;
+    color: #DBDBDB;
+}
+
+li{
+    transition: opacity 0.2s ease;
+}
+
+ul:hover li{
+    opacity: 0.4;
+}
+
+ul li:hover{
+    opacity: 1;
+}
+
+.icon{
+    width: 25px;
+    height: auto;
+    margin-right: 15px;
+}
+
+#seperation{
+    margin-top: 50px;
+}
+
+
+
+
+#topbar{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 20%;
+    width: 80%;
+    height: 20vh;
+    background-color: #32373B;
+}
+
+.bigProfile{
+    width: 50px;
+    height: auto;
+    margin-right: 20px;
+    vertical-align: middle;
+    border-radius: 30px;
+    border: 2px solid #DBDBDB;
+}
+
+.subTitle{
+    font-size: 30px;
+    color: #DBDBDB;
+    padding: 10px;
+    padding-left: 4%;
+}
+
+#searchbar{
+    width: 50%;
+    padding: 9px;
+    margin-top: 3%;
+    margin-left: 3%;
+    border: 2px solid #DBDBDB;
+    border-radius: 50px;
+    font-family: "DM Serif Text", serif;
+}
+
+
+
+
+#bigBox{
+    position: fixed;
+    top: 20%;
+    left: 20%;
+    width: 80%;
+    height: 80vh;
+    background-color: #DBDBDB;
+}
