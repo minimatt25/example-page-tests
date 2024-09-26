@@ -2,6 +2,10 @@ body{
     font-family: "DM Serif Text", serif;
 }
 
+a{
+    text-decoration: none;
+}
+
 
 
 #sidebar{
@@ -67,14 +71,14 @@ ul li:hover{
 
 
 #topbar{
-    display: flex;
-    flex-direction: column;
     position: fixed;
     top: 0;
     left: 20%;
     width: 80%;
-    height: 20vh;
+    min-height: 191px;
+    height: 191px;
     background-color: #32373B;
+    overflow: hidden;
 }
 
 .bigProfile{
@@ -96,11 +100,66 @@ ul li:hover{
 #searchbar{
     width: 50%;
     padding: 9px;
-    margin-top: 3%;
+    margin-top: 30px;
     margin-left: 3%;
     border: 2px solid #DBDBDB;
     border-radius: 50px;
     font-family: "DM Serif Text", serif;
+}
+
+.topRight{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 25px;
+    right: 2.5%;
+}
+
+.notificationsIcon{
+    width: 35px;
+    height: auto;
+    margin-right: 50px;
+}
+
+.smallProfile{
+    width: 35px;
+    height: auto;
+    border-radius: 30px;
+    border: 2px solid #DBDBDB;
+    margin-left: 10px;
+}
+
+h3{
+    color: #DBDBDB;
+}
+
+.bottomRight{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 100px;
+    right: 2.5%;
+    width: 25%;
+    margin-right: 6%;
+}
+
+.ovelBox{
+    text-align: center;
+    color: #DBDBDB;
+    padding: 10px;
+    width: 70px;
+    background-color: #40474D;
+    border: 2px solid #DBDBDB;
+    border-radius: 25px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.ovelBox:hover{
+    background-color: #555b61;
+    transition: background-color 200ms linear;
 }
 
 
@@ -111,6 +170,15 @@ ul li:hover{
     top: 20%;
     left: 20%;
     width: 80%;
-    height: 80vh;
+    height: 80%;
     background-color: #DBDBDB;
+}
+
+.bigBoxText{
+    color: #32373B;
+}
+
+#projects{
+    margin-left: 4%;
+    margin-top: 40px;
 }
