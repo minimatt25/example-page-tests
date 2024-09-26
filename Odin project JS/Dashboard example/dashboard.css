@@ -146,12 +146,11 @@ ul li:hover{
 }
 
 .ovelBox{
+    font-size: 20px;
     text-align: center;
     color: #DBDBDB;
     padding: 10px;
     width: 70px;
-    background-color: #40474D;
-    border: 2px solid #DBDBDB;
     border-radius: 25px;
     display: table-cell;
     vertical-align: middle;
@@ -192,7 +191,7 @@ ul li:hover{
 
 .project{
     display: table-cell;
-    width: 375px;
+    width: 450px;
     height: 300px;
     padding: 10px;
     background-color: #FFFFFF;
@@ -210,4 +209,46 @@ ul li:hover{
 .boxTextPadding{
     padding-left: 20px;
     margin: 5px auto;
+}
+
+.rightBigBox{
+    position: absolute;
+    top: 0vh;
+    right: 0vh;
+    height: 100vh;
+    width: 42vh;
+    background-color: #DBDBDB;
+}
+
+#announcementsTitle{
+    margin-top: 40px;
+}
+
+#announcementsBox{
+    width: 300px;
+    height: 400px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 7px 7px #32373B;
+    border-radius: 20px;
+}
+
+#otherBox{
+    width: 300px;
+    height: 400px;
+    margin-top: 60px;
+    padding: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 7px 7px #32373B;
+    border-radius: 20px;
+}
+
+.tinyPara{
+    font-size: 13px;
+}
+
+hr{
+    width: 80%;
 }
