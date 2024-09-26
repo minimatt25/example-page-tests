@@ -130,7 +130,7 @@ ul li:hover{
     margin-left: 10px;
 }
 
-h3{
+.username{
     color: #DBDBDB;
 }
 
@@ -172,13 +172,42 @@ h3{
     width: 80%;
     height: 80%;
     background-color: #DBDBDB;
+    overflow: scroll;
 }
 
 .bigBoxText{
     color: #32373B;
 }
 
-#projects{
+#projectsTitle{
     margin-left: 4%;
     margin-top: 40px;
+}
+
+.projects{
+    display: table;
+    margin-left: 1%;
+    border-spacing: 40px;
+}
+
+.project{
+    display: table-cell;
+    width: 375px;
+    height: 300px;
+    padding: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 7px 7px #32373B;
+    border-radius: 20px;
+}
+
+.boxScroll{
+    height: 88%;
+    overflow: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.boxTextPadding{
+    padding-left: 20px;
+    margin: 5px auto;
 }
