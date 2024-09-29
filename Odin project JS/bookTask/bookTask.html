@@ -6,7 +6,12 @@
     <title>Library</title>
 
     <link rel="stylesheet" href="bookTask.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header><h1>Your Library</h1></header>
     
@@ -21,7 +26,20 @@
                 <h3>Book Name:</h3><input type="text" id="bookName">
                 <h3>Author:</h3><input type="text" id="bookAuthor">
                 <h3>Page Amount:</h3><input type="number" id="bookPages">
-    
+
+                <h3>Genre:</h3><select name="genre" id="bookGenre">
+                    <option value="Action/Adventure">Action/Adventure</option>
+                    <option value="Children/Young Adult">Children/Young Adult</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Crime/Detective">Crime/Detective</option>
+                    <option value="Fantasy/Sci-fi">Fantasy/Sci-fi</option>
+                    <option value="Historical">Historical</option>
+                    <option value="Mystery/Horror">Mystery/Horror</option>
+                    <option value="Philosophical/Religious">Philosophical/Religious</option>
+                    <option value="Poetry">Poetry</option>
+                    <option value="Romance">Romance</option>
+                </select>
+                
                 <h3>Read:</h3>
                 <input type="radio" id="read" name="quiz" checked="checked">
                 <label for="read">Yes</label>
@@ -37,6 +55,7 @@
 
     <br>
     <h2 class="leftMargin">Books</h2>
+    <br>
     <p id="bookList" class="leftMargin"></p>
     <script src="bookTask.js"></script>
 </body>

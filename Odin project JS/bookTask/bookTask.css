@@ -4,12 +4,22 @@
 }
 
 body{
-    background-color: #ECF0F1;
+    background-color: #e0e2e2;
     color: #2C3E50;
+}
+
+h1,h2,h3,h4,h5{
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
 }
 
 button{
     padding: 5px;
+}
+
+input[type="radio"]{
+    padding-top: 2px;
+    accent-color: #2C3E50;
 }
 
 header{
@@ -20,8 +30,17 @@ header{
     width: 100%;
     background-color: #2C3E50;
     color: #FFFFFF;
+    font-size: 30px;
 }
 
 .leftMargin{
     margin-left: 20px;
+}
+
+.book{
+    background-color: #FFFFFF;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: fit-content;
+    border: 2px solid #2C3E50;
 }
