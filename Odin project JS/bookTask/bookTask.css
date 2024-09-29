@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #ECF0F1;
+    color: #2C3E50;
+}
+
+button{
+    padding: 5px;
+}
+
+header{
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    min-height: 100px;
+    width: 100%;
+    background-color: #2C3E50;
+    color: #FFFFFF;
+}
+
+.leftMargin{
+    margin-left: 20px;
+}

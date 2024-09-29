@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+
+    <link rel="stylesheet" href="bookTask.css">
+</head>
+<body>
+    <header><h1>Your Library</h1></header>
+    
+    <br><br>
+    <button id="newBook" class="leftMargin">New Book</button>
+    <br>
+
+    <div id="quiz" class="leftMargin" style="display: none;">
+        <br><br>
+        <fieldset style="width: fit-content; padding: 10px;">
+            <legend>Book inputs</legend>
+                <h3>Book Name:</h3><input type="text" id="bookName">
+                <h3>Author:</h3><input type="text" id="bookAuthor">
+                <h3>Page Amount:</h3><input type="number" id="bookPages">
+    
+                <h3>Read:</h3>
+                <input type="radio" id="read" name="quiz" checked="checked">
+                <label for="read">Yes</label>
+                <input type="radio" id="reading" name="quiz">
+                <label for="reading">Reading</label>
+                <input type="radio" id="notRead" name="quiz">
+                <label for="notRead">No</label>
+                
+                <br><br>
+                <button id="done">Done</button>
+        </fieldset>
+    </div>
+
+    <br>
+    <h2 class="leftMargin">Books</h2>
+    <p id="bookList" class="leftMargin"></p>
+    <script src="bookTask.js"></script>
+</body>
+</html>
