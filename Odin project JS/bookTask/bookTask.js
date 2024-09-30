@@ -21,13 +21,38 @@ function Book(name,author,pages,genre,read,stars){
     }
 }
 
+//checking the order changes and calling addBookToLib
+document.getElementById("orderDropdown").addEventListener("change", function(){addBookToLib(this.value)});
+
 //add book to library (called when new book made by user)
-function addBookToLib(){
+function addBookToLib(order){
     const bookList = document.getElementById("bookList");
     bookList.innerHTML = "";
 
-    for (let i=0; i<library.length; i++){
-        bookList.innerHTML += `<div class="book"> <button class="delete" data-index="${i}">` + '<img src="cross.png" alt="cross" class="cross"> </button><div class="bookText">' + library[i].info() + "</div></div>";
+    let usedLibrary = [...library]
+
+    //order of library depending on dropdown
+    switch(order){
+        case 'bookAlphabetical': 
+            usedLibrary.sort((a,b) => a.name.localeCompare(b.name));
+            break;
+        case 'authorAlphabetical':
+            usedLibrary.sort((a,b) => a.author.localeCompare(b.author));
+            break;
+        case 'starHighest':
+            usedLibrary = usedLibrary.filter(book => book.stars && book.stars!=="unrated");
+            usedLibrary.sort((a,b) => a.stars.length - b.stars.length);
+            break;
+        case 'starLowest':
+            usedLibrary = usedLibrary.filter(book => book.stars && book.stars!=="unrated");
+            usedLibrary.sort((a,b) => b.stars.length - a.stars.length);
+            break;
+        default:
+            usedLibrary.sort((a,b) => a.name.localeCompare(b.name));
+    }
+    
+    for (let i=0; i<usedLibrary.length; i++){
+        bookList.innerHTML += `<div class="book"> <button class="delete" data-index="${i}">` + '<img src="cross.png" alt="cross" class="cross"> </button><div class="bookText">' + usedLibrary[i].info() + "</div></div>";
     }
     localStorage.setItem("library", JSON.stringify(library));
 
@@ -47,7 +72,7 @@ finalButton.onclick = function(){
     if(document.getElementById("deleteYes").checked){
         const index = this.getAttribute("data-index");
         library.splice(index, 1);
-        addBookToLib();
+        addBookToLib(document.getElementById("orderDropdown").value);
         document.getElementById("popup").style.display = "none";
     } else{
         document.getElementById("popup").style.display = "none";
@@ -63,7 +88,7 @@ bookButton.onclick = function(){
 //check if stars section needed
 function starsNeeded(){
     const readYes = document.getElementById("read").checked;
-    document.getElementById("starStuff").style.display = readYes ? "flex":"none";
+    document.getElementById("starStuff").style.display = readYes ? "block":"none";
 }
 
 //event listener always checks a change in the radio button selected and calls starsNeeded
@@ -111,7 +136,7 @@ doneButton.onclick = function(){
     if(bookName!="" && bookAuthor!="" && bookPages!="" && bookGenre!=""){
         this.book = new Book(bookName, bookAuthor, bookPages, bookGenre, radioRead, stars)
         library.push(this.book)
-        addBookToLib();
+        addBookToLib(document.getElementById("orderDropdown").value);
     }
     
     document.getElementById("bookName").value = "";
@@ -120,5 +145,8 @@ doneButton.onclick = function(){
     document.getElementById("bookGenre").value = "";
 };
 
+//alphabetical order default
+library.sort((a,b) => a.name.localeCompare(b.name));
+
 starsNeeded();
-addBookToLib();
+addBookToLib(document.getElementById("orderDropdown").value);

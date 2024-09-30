@@ -24,9 +24,9 @@
         <br><br>
         <fieldset style="width: fit-content; padding: 10px;">
             <legend>Book inputs</legend>
-                <h3>Book Name:</h3><input type="text" id="bookName">
-                <h3>Author:</h3><input type="text" id="bookAuthor">
-                <h3>Page Amount:</h3><input type="number" id="bookPages">
+                <h3>Book Name:</h3><input type="text" id="bookName" minlength="1" maxlength="50">
+                <h3>Author:</h3><input type="text" id="bookAuthor" minlength="1" maxlength="30">
+                <h3>Page Amount:</h3><input type="number" id="bookPages" min="1" max="10000">
 
                 <h3>Genre:</h3><select name="genre" id="bookGenre">
                     <option value="Action/Adventure">Action/Adventure</option>
@@ -49,8 +49,8 @@
                 <input type="radio" id="notRead" name="quiz">
                 <label for="notRead">No</label>
                 
-                <h3>Star Rating:</h3>
                 <div id="starStuff">
+                    <h3>Star Rating:</h3><br>
                     <div class="stars">
                         <input type="radio" name="rating" id="rating1" value="1">
                         <label for="rating1" class="fa fa-star"></label>
@@ -70,7 +70,17 @@
     </div>
 
     <br>
-    <h1 class="leftMargin">Books</h1>
+
+    <div class="leftMargin orderDropdownContainer">
+        <h1>Books</h1>
+        <select name="order" id="orderDropdown">
+            <option value="bookAlphabetical">Book Alphabetical</option>
+            <option value="authorAlphabetical">Author Alphabetical</option>
+            <option value="starHighest">Highest Star First</option>
+            <option value="starLowest">Lowest Star First</option>
+        </select>
+    </div>
+    
     <br>
     <p id="bookList" class="leftMargin"></p>
 
