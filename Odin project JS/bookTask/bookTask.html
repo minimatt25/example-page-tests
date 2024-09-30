@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -48,13 +49,28 @@
                 <input type="radio" id="notRead" name="quiz">
                 <label for="notRead">No</label>
                 
+                <h3>Star Rating:</h3>
+                <div id="starStuff">
+                    <div class="stars">
+                        <input type="radio" name="rating" id="rating1" value="1">
+                        <label for="rating1" class="fa fa-star"></label>
+                        <input type="radio" name="rating" id="rating2" value="2">
+                        <label for="rating2" class="fa fa-star"></label>
+                        <input type="radio" name="rating" id="rating3" value="3">
+                        <label for="rating3" class="fa fa-star"></label>
+                        <input type="radio" name="rating" id="rating4" value="4">
+                        <label for="rating4" class="fa fa-star"></label>
+                        <input type="radio" name="rating" id="rating5" value="5">
+                        <label for="rating5" class="fa fa-star"></label>
+                    </div>
+                </div>
                 <br><br>
                 <button id="done">Done</button>
         </fieldset>
     </div>
 
     <br>
-    <h2 class="leftMargin">Books</h2>
+    <h1 class="leftMargin">Books</h1>
     <br>
     <p id="bookList" class="leftMargin"></p>
 

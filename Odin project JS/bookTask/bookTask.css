@@ -13,13 +13,19 @@ h1,h2,h3,h4,h5{
     font-weight: 700;
 }
 
+h3{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 button{
     padding: 5px;
     cursor: pointer;
 }
 
 input[type="radio"]{
-    padding-top: 2px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     accent-color: #2C3E50;
 }
 
@@ -31,7 +37,8 @@ header{
     width: 100%;
     background-color: #2C3E50;
     color: #FFFFFF;
-    font-size: 30px;
+    font-size: 25px;
+    padding: 30px;
 }
 
 .leftMargin{
@@ -90,4 +97,41 @@ input[type="radio"]#deleteNo{
     border: 1px solid #e0e2e2;
     background-color: #2C3E50;
     color: #FFFFFF;
+}
+
+#starStuff{
+    display: none;
+    justify-content: center;
+}
+
+.stars{
+    color: #FFD700;
+    background-color: #2C3E50;
+    width: 121px;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.stars input{
+    display: none;
+}
+
+.stars label{
+    padding: 3px;
+    cursor: pointer;
+}
+
+.stars input:checked + label ~ label{
+    color: #838383;
+}
+
+.stars div{
+    padding: 4.6px;
+    align-self: center;
+}
+
+.boxStars{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
 }
