@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 
 <body>
@@ -82,7 +84,12 @@
     </div>
     
     <br>
-    <p id="bookList" class="leftMargin"></p>
+    <div id="mainBody">
+        <p id="bookList" class="leftMargin"></p>
+        <div id="rightHandInfo">
+            <canvas id="donutChart"></canvas>
+        </div>
+    </div>
 
     <div id="popup">
         Are you sure you want to delete this book?<br><br>
@@ -93,6 +100,7 @@
         <br>
         <button id="finalButton">Done</button>
     </div>
+
 
     <script src="bookTask.js"></script>
 </body>

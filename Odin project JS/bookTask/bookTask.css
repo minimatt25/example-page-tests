@@ -54,6 +54,7 @@ header{
     padding: 5px;
     margin: 10px;
     width: fit-content;
+    height: fit-content;
     border: 3px solid #2C3E50;
 }
 
@@ -152,4 +153,38 @@ input[type="radio"]#deleteNo{
     font-size: 12px;
     margin-top: 7px;
     margin-left: 10px;
+}
+
+#mainBody{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#donutChart{
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+
+@media(max-width:1099px){
+    #donutChart{
+        display: none!important;
+    }
+}
+
+@media(min-width:1100px){
+    #rightHandInfo{
+        min-width: 400px;
+        height: 500px;
+        background-color: #ffffff;
+        border: 3px solid #2C3E50;
+        margin-right: 3%;
+        margin-top: 10px;
+    }
+    
+    #donutChart{
+        display: block;
+    }
 }

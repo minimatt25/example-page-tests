@@ -1,6 +1,54 @@
 //list of books
 let library = [];
 
+//graph lists
+let starValues = ["One Star", "Two Star", "Three Star", "Four Star", "Five Star"];
+let starPercentage = [];
+let starColors = ["#800020","#C41E3A","#EE4B2B","#FFA500","#FFD700"];
+
+function calculatateStar(){
+    let starAmounts = [0,0,0,0,0]
+    let bookAmount = 0
+
+    library.forEach(book => {
+        if(book.stars ){
+            //found online, searches all matches of "fa-star" globally (g) or if not returns empty array whos length is 0.
+            let starVal = (book.stars.match(/fa-star(?!" style="color: #838383")/g) || []).length;
+
+            if(starVal>=1 && starVal<=5){
+                starAmounts[starVal-1]++;
+                bookAmount++;
+            }
+        }
+    });
+
+    //if bookAmount > 0, map the percentages to the list, else fill list with 0s
+    starPercentage = bookAmount>0?
+    starAmounts.map(count => (count/bookAmount*100).toFixed(2))
+    :starAmounts.fill(0);
+
+    donutChart.data.datasets[0].data = starPercentage;
+    donutChart.update();
+}
+
+let donutChart = new Chart("donutChart", {
+    type: "doughnut",
+    data: {
+        labels:starValues,
+        datasets: [{
+            backgroundColor:starColors,
+            data:starPercentage
+            
+        }]
+    },
+    options:{
+        title:{
+            display:true,
+            text:"Your star rating percentages"
+        }
+    }
+})
+
 //taking books from local storage on page reload
 const storedLib = localStorage.getItem("library");
 if(storedLib){
@@ -58,6 +106,8 @@ function addBookToLib(order){
 
     const deleteButtons = document.querySelectorAll(".delete");
     deleteButtons.forEach(button => {button.onclick = function(){const index = this.getAttribute("data-index"); deleteBook(index);}});
+
+    calculatateStar();
 }
 
 //user deletes book on cross press by using its assigned data-index
@@ -74,6 +124,7 @@ finalButton.onclick = function(){
         library.splice(index, 1);
         addBookToLib(document.getElementById("orderDropdown").value);
         document.getElementById("popup").style.display = "none";
+        calculatateStar();
     } else{
         document.getElementById("popup").style.display = "none";
     }
