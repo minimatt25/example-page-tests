@@ -1,5 +1,6 @@
 //list of books
 let library = [];
+let usedLibrary = [...library];
 
 //graph lists
 let starValues = ["One Star", "Two Star", "Three Star", "Four Star", "Five Star"];
@@ -10,7 +11,7 @@ function calculatateStar(){
     let starAmounts = [0,0,0,0,0]
     let bookAmount = 0
 
-    library.forEach(book => {
+    usedLibrary.forEach(book => {
         if(book.stars ){
             //found online, searches all matches of "fa-star" globally (g) or if not returns empty array whos length is 0.
             let starVal = (book.stars.match(/fa-star(?!" style="color: #838383")/g) || []).length;
@@ -89,8 +90,7 @@ function addBookToLib(order,genreFilter){
     const bookList = document.getElementById("bookList");
     bookList.innerHTML = "";
 
-    let usedLibrary = [...library]
-
+    usedLibrary = [...library];
     //filter by genre
 
     if(genreFilter!="All"){
