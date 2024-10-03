@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+    <style>
+        body{
+            background-color: #FAF3DD;
+            text-align: center;
+            font-family: "Righteous", sans-serif;
+        }
+
+        h1{
+            font-size: 60px;
+            color: black;
+            text-shadow: 4px 4px #FFA69E;
+            padding: 0;
+            margin: 0 auto;
+        }
+        
+        #tableContainer{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            width: 600px;
+            height: 600px;
+            background-color: black;
+        }
+
+        td{
+            border: 2px solid black;
+        }
+
+        .box{
+            min-width: 191px;
+            height: 191px;
+            background-color: #FFFFFF;
+        }
+
+        .box:hover{
+            cursor: pointer;
+            background-color: #B8F2E6;
+        }
+
+        img{
+            display: block;
+            left: 50%;
+            top: 50%;
+            transform: translate(50%,50%);
+        }
+    </style>
+
+    
+    <h1>Tic tac toe</h1>
+    <h2 id="turn"></h2>
+
+    <div id="tableContainer">
+        <table id="actualTable">
+            <tr>
+                <td>
+                    <div class="box" id="box1"></div>
+                </td>
+                <td>
+                    <div class="box" id="box2"></div>
+                </td>
+                <td>
+                    <div class="box" id="box3"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="box" id="box4"></div>
+                </td>
+                <td>
+                    <div class="box" id="box5"></div>
+                </td>
+                <td>
+                    <div class="box" id="box6"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="box" id="box7"></div>
+                </td>
+                <td>
+                    <div class="box" id="box8"></div>
+                </td>
+                <td>
+                    <div class="box" id="box9"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        gameOver = false;
+        let turn = "Nought";
+
+        let boxes = ["box1","box2","box3",
+                    "box4","box5","box6",
+                    "box7","box8","box9"];
+
+        let boxesShape = ["","","","","","","","",""];
+
+        document.getElementById("turn").innerHTML= turn + "'s turn";
+        function round(){
+            boxes.forEach(
+                id => {const tempBox = document.getElementById(id);
+                tempBox.addEventListener("click", () => addIcon(tempBox), {once:true});
+            });
+
+            function addIcon(clickedBox){
+                if(gameOver){
+                    return;
+                }
+
+                let boxNumber = parseInt((clickedBox.id).match(/\d+/)[0]);
+                if(turn=="Nought"){
+                    clickedBox.innerHTML = '<img src="circle.png" alt="circleImage">';
+                    boxesShape[boxNumber-1] = turn;
+                    turn="Cross";
+                } else{
+                    clickedBox.innerHTML = '<img src="cross.png" alt="crossImage">';
+                    boxesShape[boxNumber-1] = turn;
+                    turn="Nought";
+                }
+                
+                console.log(boxesShape);
+
+                document.getElementById("turn").innerHTML= turn + "'s turn";
+                boxes.filter(boxId => boxId !== clickedBox.id);
+
+                if(won()==true){
+                    document.getElementById("turn").innerHTML= turn + " Won!";
+                    gameOver = true;
+                }
+            }
+
+            function won() {
+                const winningCombinations = [
+                    [0, 1, 2],
+                    [3, 4, 5],
+                    [6, 7, 8],
+                    [0, 3, 6],
+                    [1, 4, 7],
+                    [2, 5, 8],
+                    [0, 4, 8],
+                    [2, 4, 6]
+                ];
+
+                for (const [a, b, c] of winningCombinations) {
+                    if (boxesShape[a] && boxesShape[a] === boxesShape[b] && boxesShape[a] === boxesShape[c]) {
+                        turn = boxesShape[a] === "Nought" ? "Noughts" : "Crosses"; 
+                        return true;
+                    }
+                }
+
+                for(let i=0; i<boxesShape.length; i++){
+                    if(boxesShape[i]==""){
+                        break;
+                    }
+                    if(i==8){
+                        document.getElementById("turn").innerHTML= "Draw!";
+                        gameOver = true;
+                    }
+                }
+                return false;
+            }
+        }
+        round();
+    </script>
+</body>
+</html>
