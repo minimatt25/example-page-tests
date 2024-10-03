@@ -70,14 +70,34 @@ function Book(name,author,pages,genre,read,stars){
 }
 
 //checking the order changes and calling addBookToLib
-document.getElementById("orderDropdown").addEventListener("change", function(){addBookToLib(this.value)});
+let rightOrder = document.getElementById("orderDropdown").value;
+let rightGenre = document.getElementById("genreFilter").value;
+
+document.getElementById("orderDropdown").addEventListener("change", function(){
+    rightOrder=this.value;
+    addBookToLib(rightOrder,rightGenre)
+});
+
+//checking the genre changes and calling addBookToLib
+document.getElementById("genreFilter").addEventListener("change", function(){
+    rightGenre=this.value;
+    addBookToLib(rightOrder,rightGenre)
+});
 
 //add book to library (called when new book made by user)
-function addBookToLib(order){
+function addBookToLib(order,genreFilter){
     const bookList = document.getElementById("bookList");
     bookList.innerHTML = "";
 
     let usedLibrary = [...library]
+
+    //filter by genre
+
+    if(genreFilter!="All"){
+        usedLibrary = usedLibrary.filter(book =>{ 
+            //console.log("book.genre:",book.genre,"     genreFilter:",genreFilter);
+            return book.genre === genreFilter});
+    }
 
     //order of library depending on dropdown
     switch(order){
@@ -122,7 +142,7 @@ finalButton.onclick = function(){
     if(document.getElementById("deleteYes").checked){
         const index = this.getAttribute("data-index");
         library.splice(index, 1);
-        addBookToLib(document.getElementById("orderDropdown").value);
+        addBookToLib(document.getElementById("orderDropdown").value,document.getElementById("genreFilter").value);
         document.getElementById("popup").style.display = "none";
         calculatateStar();
     } else{
@@ -187,7 +207,7 @@ doneButton.onclick = function(){
     if(bookName!="" && bookAuthor!="" && bookPages!="" && bookGenre!=""){
         this.book = new Book(bookName, bookAuthor, bookPages, bookGenre, radioRead, stars)
         library.push(this.book)
-        addBookToLib(document.getElementById("orderDropdown").value);
+        addBookToLib(document.getElementById("orderDropdown").value,document.getElementById("genreFilter").value);
     }
     
     document.getElementById("bookName").value = "";
@@ -200,4 +220,4 @@ doneButton.onclick = function(){
 library.sort((a,b) => a.name.localeCompare(b.name));
 
 starsNeeded();
-addBookToLib(document.getElementById("orderDropdown").value);
+addBookToLib(document.getElementById("orderDropdown").value,document.getElementById("genreFilter").value);

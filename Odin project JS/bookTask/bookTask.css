@@ -147,7 +147,7 @@ input[type="radio"]#deleteNo{
     align-items: center;
 }
 
-#orderDropdown{
+#orderDropdown,#genreFilter{
     width: auto;
     height: 20px;
     font-size: 12px;
